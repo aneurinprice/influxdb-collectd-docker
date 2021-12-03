@@ -1,11 +1,9 @@
 # INFLUXDB-COLLECTD-DOCKER
 
-It's pretty self explanitory. This is a fork of the Official Influxdb Docker Image that comes pre-loaded with the Collectd  Typeset. This will still require all the config from influxdb. Because their documentation (at the time of writing this) is terrible, I have included a snippet that should work in most situations:
+[Dockerhub](https://hub.docker.com/r/m08y/influxdb-collectd-docker)
+[Github](https://github.com/aneurinprice/influxdb-collectd-docker)
 
-## How to run
-```
-docker run -d -p 25826:25826 m08y/influxdb-collectd-docker:latest
-```
+It's pretty self explanitory. This is a fork of the Official Influxdb Docker Image that comes pre-loaded with the Collectd  Typeset. This will still require all the config from influxdb. Because their documentation (at the time of writing this) is terrible, I have included a snippet that should work in most situations
 
 ## Example Influxdb Config
 ```
@@ -27,6 +25,11 @@ docker run -d -p 25826:25826 m08y/influxdb-collectd-docker:latest
   batch-timeout = "10s"
   read-buffer = 0 # UDP read buffer size, 0 means to use OS default
   typesdb = "/usr/share/collectd/types.db"
+```
+
+## How to run
+```
+docker run -d -p 25826:25826 -v $PWD/influxdb.conf:/etc/influxdb/influxdb.conf m08y/influxdb-collectd-docker:latest
 ```
 
 ## Gotchas
