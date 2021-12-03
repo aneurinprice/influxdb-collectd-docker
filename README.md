@@ -1,6 +1,7 @@
 # INFLUXDB-COLLECTD-DOCKER
 
 [Dockerhub](https://hub.docker.com/r/m08y/influxdb-collectd-docker)
+
 [Github](https://github.com/aneurinprice/influxdb-collectd-docker)
 
 It's pretty self explanitory. This is a fork of the Official Influxdb Docker Image that comes pre-loaded with the Collectd  Typeset. This will still require all the config from influxdb. Because their documentation (at the time of writing this) is terrible, I have included a snippet that should work in most situations
