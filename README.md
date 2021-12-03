@@ -4,7 +4,7 @@ It's pretty self explanitory. This is a fork of the Official Influxdb Docker Ima
 
 ## How to run
 ```
-docker run -d -p 25826:25826 registry.nyeprice.space/influxdb-collectd/influxdb-collectd:latest
+docker run -d -p 25826:25826 m08y/influxdb-collectd-docker:latest
 ```
 
 ## Example Influxdb Config
