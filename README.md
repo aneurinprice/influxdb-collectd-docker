@@ -7,7 +7,7 @@ It's pretty self explanitory. This is a fork of the Official Influxdb Docker Ima
 docker run -d -p 25826:25826 registry.nyeprice.space/influxdb-collectd/influxdb-collectd:latest
 ```
 
-## Default Config
+## Example Influxdb Config
 ```
 [meta]
   dir = "/var/lib/influxdb/meta"
