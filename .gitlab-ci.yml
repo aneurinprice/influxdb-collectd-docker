@@ -4,9 +4,11 @@ stages:
 build:
   stage: build
   tags:
-    - docker-socket
+    - breezy-kubernetes-generic 
   image:
     name: docker:dind
+  variables:
+    DOCKER_BUILDKIT: 1
   script:
     - echo "${PERSONAL_DOCKERHUB_PASSWORD}" | docker login --username "${PERSONAL_DOCKERHUB_USER}" --password-stdin
     - docker build --tag "${CI_COMMIT_SHORT_SHA}" --file "${CI_PROJECT_DIR}/Dockerfile" "${CI_PROJECT_DIR}"
