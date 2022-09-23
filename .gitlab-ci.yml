@@ -1,17 +1,18 @@
 stages:
-  - build
+- build
 
-build:
+daemonless:
   stage: build
-  tags:
-    - generic 
   image:
     name: moby/buildkit:rootless
+    entrypoint: [ "sh", "-c" ]
   variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
   script:
-     - |
-        buildctl-daemonless.sh build \
-            --frontend=dockerfile.v0 \
-            --local context=. \
-            --local dockerfile=.
+  - |
+    buildctl-daemonless.sh build \
+        --frontend=dockerfile.v0 \
+        --local context=. \
+        --local dockerfile=.
+  tags:
+  - generic
