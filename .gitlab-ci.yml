@@ -4,7 +4,7 @@ stages:
 build:
   stage: build
   tags:
-    - kubernetes-generic 
+    - generic 
   image:
     name: docker:dind
   variables:
