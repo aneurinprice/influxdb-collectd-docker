@@ -1,25 +1,16 @@
 stages:
 - build
 
-buildkitd:
+daemonless:
   stage: build
-
-  services:
-  - alias: buildkitd
-    name: moby/buildkit:rootless
-    command:
-    - "--oci-worker-no-process-sandbox"
-    - "--addr"
-    - "tcp://0.0.0.0:1234"
-  variables:
-    BUILDKIT_HOST: tcp://buildkitd:1234
-
   image:
     name: moby/buildkit:rootless
     entrypoint: [ "sh", "-c" ]
+  variables:
+    BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
   script:
   - |
-    buildctl build \
+    buildctl-daemonless.sh build \
         --frontend=dockerfile.v0 \
         --local context=. \
         --local dockerfile=.
