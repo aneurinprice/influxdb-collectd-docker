@@ -6,9 +6,8 @@ build:
   tags:
     - generic 
   image:
-    name: docker:dind
+    name: docker:stable
   variables:
-    DOCKER_DRIVER: overlay2
     DOCKER_BUILDKIT: 1
   script:
     - echo "${PERSONAL_DOCKERHUB_PASSWORD}" | docker login --username "${PERSONAL_DOCKERHUB_USER}" --password-stdin
