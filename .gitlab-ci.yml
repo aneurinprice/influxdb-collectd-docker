@@ -11,7 +11,7 @@ build:
     DOCKER_BUILDKIT: 1
   script:
      - |
-        buildctl build \
+        buildctl-daemonless.sh build \
             --frontend=dockerfile.v0 \
             --local context=. \
             --local dockerfile=.
