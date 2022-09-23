@@ -8,7 +8,7 @@ build:
   image:
     name: moby/buildkit:rootless
   variables:
-    DOCKER_BUILDKIT: 1
+    BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
   script:
      - |
         buildctl-daemonless.sh build \
