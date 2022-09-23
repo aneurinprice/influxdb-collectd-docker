@@ -5,12 +5,12 @@ daemonless:
   stage: build
   image:
     name: moby/buildkit:rootless
-    entrypoint: [ "sh", "-c" ]
+    entrypoint: [ "buildctl-daemonless.sh" ]
   variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
   script:
   - |
-    buildctl-daemonless.sh build \
+    build \
         --frontend=dockerfile.v0 \
         --local context=. \
         --local dockerfile=.
